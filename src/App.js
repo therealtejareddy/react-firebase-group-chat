@@ -1,7 +1,7 @@
 import './App.css';
 import React, {useState, useEffect} from 'react'
-import Button from './Button';
-import Channel from './Channel';
+import Button from './components/Button';
+import Channel from './components/Channel';
 
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
@@ -15,9 +15,6 @@ const firebaseConfig = {
   messagingSenderId: "264254550819",
   appId: "1:264254550819:web:897a2b54538a7118635296"
 };
-
-// Initialize Firebase
-
 
 function App() {
   const app = initializeApp(firebaseConfig);
@@ -45,14 +42,24 @@ const db = getFirestore(app);
     await signOut(auth);
   }
   return (
-    <div className="App">
+    <div className="h-screen">
       {user ? (
-        <>
-          "Welcome"
-          <Button onClick={signout}>Sign Out</Button>
+        <div>
+          <div className='flex fixed top-0 h-14 w-full bg-gradient-to-r from-sky-300 to-blue-500 shadow px-16 items-center justify-between'>
+            
+            <span><h1 className='text-2xl font-semibold'>⚛🔥❤ Chat</h1></span>
+            <Button onClick={signout}>Sign Out</Button>
+          </div>
           <Channel user={user} db={db}></Channel>
-        </>
-      ) : <Button onClick={signInWithGoogle}>Sign In with Google</Button>}
+        </div>
+      ) : (
+        <div className="h-screen flex flex-col items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500">
+          <div className='flex justify-center text-4xl font-semibold py-6'><h1>
+              React⚛ Firebase🔥 Chat
+          </h1></div>
+          <Button onClick={signInWithGoogle}>Sign In with Google</Button>
+        </div>
+      )}
     </div>
   );
 }
