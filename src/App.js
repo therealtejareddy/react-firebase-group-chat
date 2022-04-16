@@ -47,7 +47,7 @@ const db = getFirestore(app);
         <div>
           <div className='flex fixed top-0 h-14 w-full bg-gradient-to-r from-sky-300 to-blue-500 shadow px-16 items-center justify-between'>
             
-            <span><h1 className='text-2xl font-semibold'>⚛🔥❤ Chat</h1></span>
+            <h1 className='text-2xl font-semibold'><span>⚛🔥❤ Chat</span></h1>
             <Button onClick={signout}>Sign Out</Button>
           </div>
           <Channel user={user} db={db}></Channel>
@@ -55,7 +55,7 @@ const db = getFirestore(app);
       ) : (
         <div className="h-screen flex flex-col items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500">
           <div className='flex justify-center text-4xl font-semibold py-6'><h1>
-              React⚛ Firebase🔥 Chat
+              <span>React⚛ Firebase🔥 Chat</span>
           </h1></div>
           <Button onClick={signInWithGoogle}>Sign In with Google</Button>
         </div>

@@ -49,7 +49,7 @@ function Channel({user=null, db=null}) {
   return (
     <div className='mt-14'>
         <div className='flex justify-center text-4xl font-semibold py-6'><h1>
-            React⚛ Firebase🔥 Chat
+            <span>React⚛ Firebase🔥 Chat</span>
         </h1></div>
         <hr></hr>
         <div>
